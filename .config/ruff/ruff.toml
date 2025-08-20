@@ -1,0 +1,41 @@
+# ruff global config
+line-length = 88
+indent-width = 4
+target-version = "py310"
+
+[lint]
+# ignore wildcard import warnings
+ignore = [
+    "F403", # wildcard import
+    "F405", # wildcard import from
+    "F821", # undefined name (can look like type error)
+    "F722", # syntax error in type comment
+]
+
+# enable rules from popular tools
+select = [
+  "E", # pycodestyle
+  "F", # pyflakes
+  "W", # warning
+  "I"  # isort
+]
+
+# optionally restrict to certain files
+# include = ["*.py"]
+
+[format]
+# optional if you want ruff to format code too
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = false # don't format code inside docstrings
+
+[lint.isort]
+# optional import sorter settings
+combine-as-imports = true
+#known-first-party = ["your_package_name"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[lint.per-file-ignores]
+# optional: allow wildcard imports specifically in __init__.py
+"__init__.py" = ["F403", "F405"]
+
