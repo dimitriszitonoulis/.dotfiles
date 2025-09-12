@@ -110,8 +110,10 @@ source $ZSH/oh-my-zsh.sh
 alias n="nvim"
 alias sn="sudo nvim"
 alias sd="sudo docker"
-alias get="curl -X GET"
+alias ta="tmux attach"
+alias tk="tmux kill-session"
 
+alias get="curl -X GET"
 alias post="curl -X POST"
 alias put="curl -X PUT"
 alias del="curl -X DELETE"
