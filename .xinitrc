@@ -4,7 +4,7 @@
 pkill -x dwmblocks 2>/dev/null
 
 # set wallpaper
-feh --bg-fill "$HOME/Pictures/wallpapers/portal-aperture-science-dual-monitor-wallpaper.jpg" &
+feh --bg-center "$HOME/Pictures/wallpapers/portal-aperture-science-dual-monitor-wallpaper.jpg" &
 
 # run dwm blocks in backround
 dwmblocks &
