@@ -112,6 +112,12 @@ alias sn="sudo nvim"
 alias sd="sudo docker"
 alias ta="tmux attach"
 alias tk="tmux kill-session"
+# use main monitor
+alias mmon="xrandr --output HDMI-1 --off --output eDP-1 --auto 2>&1"
+# use only secondary monitor
+alias smon="xrandr --output eDP-1 --off --output HDMI-1 --auto 2>&1"
+# use both main and secondary monitor with secondary to the left of main
+alias bmon="xrandr --output HDMI-1 --auto --left-of eDP-1"
 
 alias get="curl -X GET"
 alias post="curl -X POST"
