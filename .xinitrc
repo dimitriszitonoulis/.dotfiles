@@ -9,6 +9,9 @@ numlockx &
 # set wallpaper
 feh --bg-center "$HOME/Pictures/wallpapers/portal-aperture-science-dual-monitor-wallpaper.jpg" &
 
+# start compositor
+picom &
+
 # when 2nd monitor is connected place it to the right of main monitor
 main_monitor="eDP-1"
 second_monitor="HDMI-1"
