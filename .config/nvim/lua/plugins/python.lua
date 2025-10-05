@@ -19,78 +19,10 @@ return {
     opts = function(_, opts)
       opts.servers = opts.servers or {}
 
-      local venvBasePath = vim.fn.expand("~/Documents/venvs")
-      -- Optional: map project folder name → venv name
-      local venv_map = {
-        -- ["flask-compose"] = "flask_compose_env",
-      }
-      local python_bin = (vim.fn.has("win32") == 1) and "\\Scripts\\python.exe" or "/bin/python"
-      local last_venv = nil -- Tracks last activated venv
-
-      ----------------------------------------------------------------------
-      -- HELPERS
-      ----------------------------------------------------------------------
-
-      -- Takes the last directory name from path and checks if there is a venv with the same name in the venvs folder
-      -- Continues until it finds a venv or until the whole path is traversed
-      local function find_project_for_path(path)
-        if not path or path == "" then
-          return nil
-        end
-        local cur = vim.fs.dirname(path)
-        while cur and cur ~= "" do
-          local name = vim.fn.fnamemodify(cur, ":t")
-          local mapped = venv_map[name] or name
-          if vim.fn.isdirectory(venvBasePath .. "/" .. mapped) == 1 then
-            return mapped
-          end
-          cur = vim.fs.dirname(cur)
-        end
-        return nil
-      end
-
-      local function set_pyright_venv(config, project)
-        local py = venvBasePath .. "/" .. project .. python_bin
-        if vim.fn.filereadable(py) == 1 then
-          config.settings = config.settings or {}
-          config.settings.python = config.settings.python or {}
-          config.settings.python.pythonPath = py
-          config.settings.python.venvPath = venvBasePath
-          config.settings.python.venv = project
-
-          vim.schedule(function()
-            vim.notify("[pyright] Using venv: " .. project .. "\n" .. py, vim.log.levels.INFO)
-          end)
-        else
-          vim.schedule(function()
-            vim.notify("[pyright] Python not found in venv: " .. project, vim.log.levels.WARN)
-          end)
-        end
-      end
-
-      local function setup_dynamic_venv(config, root_dir)
-        -- get the name of the current buffer
-        local bufname = vim.api.nvim_buf_get_name(0)
-        -- find the project file starting from the buffer's path (the 1st buffer that was opened)
-        -- if nothing is found try the root directory
-        -- could also try to check for all open buffers but that would add overhead
-        local project = find_project_for_path(bufname) or find_project_for_path(root_dir)
-        if project then
-          set_pyright_venv(config, project)
-        else
-          vim.schedule(function()
-            vim.notify("[pyright] No matching venv found for root: " .. root_dir, vim.log.levels.WARN)
-          end)
-        end
-      end
-
       ----------------------------------------------------------------------
       -- PYRIGHT CONFIG
       ----------------------------------------------------------------------
       opts.servers.pyright = vim.tbl_deep_extend("force", opts.servers.pyright or {}, {
-        on_new_config = function(config, root_dir)
-          setup_dynamic_venv(config, root_dir)
-        end,
         settings = {
           python = {
             analysis = {
@@ -103,35 +35,6 @@ return {
           },
         },
       })
-
-      ----------------------------------------------------------------------
-      -- AUTO-RELOAD ON BUFFER SWITCH (OPTIMIZED)
-      ----------------------------------------------------------------------
-      local function reload_pyright_for_buf(buf)
-        if vim.api.nvim_buf_is_loaded(buf) then
-          local fname = vim.api.nvim_buf_get_name(buf)
-          if fname:match("%.py$") then
-            local client = vim.lsp.get_active_clients({ name = "pyright" })[1]
-            if client then
-              local project = find_project_for_path(fname)
-              if project and project ~= last_venv then
-                last_venv = project
-                set_pyright_venv(client.config, project)
-                client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-              end
-            end
-          end
-        end
-      end
-
-      vim.api.nvim_create_autocmd("BufEnter", {
-        callback = function(args)
-          reload_pyright_for_buf(args.buf)
-        end,
-      })
-
-
-
 
       -- do not use ruff as lsp
       -- this did nothing:
@@ -148,7 +51,7 @@ return {
   },
 
   -- For formatting use the file .config/ruff/ruff.toml
-  -- There formatting and linting rules can be specified for all projects
+  -- There, formatting and linting rules can be specified for all projects
   -- If that  file is used , there is no reason to specify args in:
   -- "mfussenegger/nvim-lint",
   --   opts.linters.ruff = {
