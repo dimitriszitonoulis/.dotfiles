@@ -119,7 +119,9 @@ alias smon="xrandr --output eDP-1 --off --output HDMI-1 --auto 2>&1"
 # use both main and secondary monitor with secondary to the left of main
 alias bmon="xrandr --output HDMI-1 --auto --left-of eDP-1"
 # kitty terminal fix
-alias ssh="TERM=xterm-256color ssh"
+# alias ssh="TERM=xterm-256color ssh"
+ssh() { kitty +kitten command ssh "$@" }
+# ssh() { TERM=xterm-256color command ssh "$@" }
 
 alias get="curl -X GET"
 alias post="curl -X POST"
