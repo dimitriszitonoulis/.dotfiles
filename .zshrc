@@ -120,5 +120,5 @@ alias smon="xrandr --output eDP-1 --off --output HDMI-1 --auto 2>&1"
 alias bmon="xrandr --output HDMI-1 --auto --left-of eDP-1"
 # kitty terminal fix
 # alias ssh="TERM=xterm-256color ssh" # from what I understand this recursively called ssh
-ssh() { kitty +kitten command ssh "$@" }
-# ssh() { TERM=xterm-256color command ssh "$@" }
+# ssh() { kitty +kitten ssh "$@" }
+ssh() { TERM=xterm-256color command ssh "$@" }
