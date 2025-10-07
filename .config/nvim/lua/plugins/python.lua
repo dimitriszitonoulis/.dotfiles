@@ -71,16 +71,16 @@ return {
       opts.linters_by_ft = opts.linters_by_ft or {}
       opts.linters_by_ft.python = { "ruff" }
 
-      opts.linters = opts.linters or {}
-      opts.linters.ruff = {
-        -- avoid stdin so we can pass file paths (needed to suppress some rules)
-        stdin = false,
-        args = {
-          "--quiet",
-          "--ignore",
-          "F403,F405",
-        },
-      }
+      -- opts.linters = opts.linters or {}
+      -- opts.linters.ruff = {
+      --   -- avoid stdin so we can pass file paths (needed to suppress some rules)
+      --   stdin = false,
+      --   args = {
+      --     "--quiet",
+      --     "--ignore",
+      --     "F403,F405",
+      --   },
+      -- }
     end,
   },
 
@@ -130,157 +130,3 @@ return {
     },
   },
 }
---
---   -- Setup for LSP servers
---   {
---     "neovim/nvim-lspconfig",
---     opts = function(_, opts)
---       opts.servers = opts.servers or {}
---
---       -- Enable Pyright or basedpyright (choose one)
---       opts.servers.pyright = opts.servers.pyright
---         or {
---           settings = {
---             python = {
---               analysis = {
---                 diagnosticSeverityOverrides = {
---                   reportWildcardImportFromLibrary = "none",
---                   reportWildcardImport = "none",
---                 },
---               },
---             },
---           },
---         }
---     end,
---     --   opts.servers.pyright = vim.tbl_deep_extend("force", opts.servers.pyright or {}, {
---     --     settings = {
---     --       python = {
---     --         analysis = {
---     --           diagnosticSeverityOverrides = {
---     --             reportWildcardImportFromLibrary = "none",
---     --             reportWildcardImport = "none",
---     --           },
---     --         },
---     --       },
---     --     },
---     --   })
---     -- end,
---   },
---
---   -- Ruff for Linting via nvim-lint
---   -- {
---   --   "mfussenegger/nvim-lint",
---   --   opts = function(_, opts)
---   --     opts.linters_by_ft = opts.linters_by_ft or {}
---   --     opts.linters_by_ft.python = { "ruff" }
---   --
---   --     opts.linters = opts.linters or {}
---   --     opts.linters.ruff = {
---   --       -- args = { "--quiet", "--ignore", "F403,F405", "-" },
---   --       -- stdin = false,
---   --       command = "ruff",
---   --       args = { "--ignore", "F403,F405" },
---   --       ignore_exitcode = true,
---   --     }
---   --   end,
---   -- },
---
---   -- Ruff for Formatting via conform.nvim
---   {
---     "stevearc/conform.nvim",
---     opts = {
---       formatters_by_ft = {
---         python = { "ruff_format" },
---       },
---     },
---   },
---
---   -- Neotest for Python
---   {
---     "nvim-neotest/neotest-python",
---   },
---
---   -- DAP (Debug Adapter Protocol) setup for Python
---   {
---     "mfussenegger/nvim-dap-python",
---     ft = "python",
---     config = function()
---       local path
---       if vim.fn.has("win32") == 1 then
---         path = require("lazyvim.util").get_pkg_path("debugpy", "/venv/Scripts/pythonw.exe")
---       else
---         path = require("lazyvim.util").get_pkg_path("debugpy", "/venv/bin/python")
---       end
---       require("dap-python").setup(path)
---     end,
---     keys = {
---       {
---         "<leader>dPt",
---         function()
---           require("dap-python").test_method()
---         end,
---         desc = "Debug Method",
---       },
---       {
---         "<leader>dPc",
---         function()
---           require("dap-python").test_class()
---         end,
---         desc = "Debug Class",
---       },
---     },
---   },
--- }
-
--- return {
---   -- extend treesitter for python-related filetypes
---   -- setup for lsp servers
---   {
---     "neovim/nvim-lspconfig",
---     opts = function(_, opts)
---       opts.servers = opts.servers or {}
---
---       -- enable pyright or basedpyright (choose one)
---       opts.servers.pyright = opts.servers.pyright
---         or {
---           settings = {
---             python = {
---               analysis = {
---                 diagnosticseverityoverrides = {
---                   reportwildcardimportfromlibrary = "none",
---                 },
---               },
---             },
---           },
---         }
---       -- opts.servers.basedpyright = opts.servers.basedpyright or {}
---
---       -- ruff_lsp setup
---       opts.servers.ruff_lsp = {
---         cmd_env = { ruff_trace = "messages" },
---         init_options = {
---           settings = {
---             loglevel = "error",
---           },
---         },
---         keys = {
---           {
---             "<leader>co",
---             function()
---               require("lazyvim.util").lsp.on_attach(function(client, _)
---                 client.server_capabilities.hoverprovider = false
---               end, "ruff_lsp")
---               require("lazyvim.util").lsp.action["source.organizeimports"]()
---             end,
---             desc = "organize imports",
---           },
---         },
---         settings = {
---           args = { "--ignore", "f403,f405" },
---         },
---       }
---     end,
---   },
---
--- }
---
