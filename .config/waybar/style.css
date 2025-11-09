@@ -26,7 +26,7 @@ window#waybar {
     /* Add transparency */
     /* By specifying the alpa value opacity can be controled */
     /* background: rgba(26, 26, 26, 0.8); */
-    background: transparent;
+    /* background: transparent; */
 
     /* backdrop-filter: blur(10px); */
     /* filter: blur(10px); */
@@ -36,10 +36,10 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
 window#waybar.empty {
     background-color: transparent;
 }
+/*
 window#waybar.solo {
     background-color: #FFFFFF;
 }
@@ -86,19 +86,18 @@ button:hover {
 #workspaces button.focused, #workspaces button.active {
     background-color: #64727D;
     /* box-shadow: inset 0 -3px #ffffff; */
-    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button:first-child:hover,
 #workspaces button:first-child.focused,
 #workspaces button:first-child.active {
-  border-radius: 15px 0 0 15px;
+  border-radius: 10px 0 0 10px;
 }
 
 #workspaces button:last-child:hover,
 #workspaces button:last-child.focused,
 #workspaces button:last-child.active {
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 10px 10px 0;
 }
 
 #workspaces button.urgent {
@@ -117,6 +116,7 @@ button:hover {
 #disk,
 #temperature,
 #backlight,
+#language,
 #network,
 #pulseaudio,
 #wireplumber,
@@ -126,16 +126,17 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
-#mpd {
+#mpd,
+#custom-power {
     padding: 0 10px;
     color: #ffffff;
 
     background-color: black;
     border: solid;
-    border-radius: 15;
+    border-radius: 10;
 }
 
-#window,
+/* #window, */
 #workspaces
 /* .modules-left */
 /* .modules-right */
@@ -144,7 +145,7 @@ button:hover {
 
     background-color: black;
     border: solid;
-    border-radius: 15;
+    border-radius: 10;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -318,13 +319,13 @@ label:focus {
 /*     background-color: #51a37a; */
 /* } */
 
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
+/* #language { */
+/*     background: #00b093; */
+/*     color: #740864; */
+/*     padding: 0 5px; */
+/*     margin: 0 5px; */
+/*     min-width: 16px; */
+/* } */
 
 /* #keyboard-state { */
 /*     background: #97e1ad; */
