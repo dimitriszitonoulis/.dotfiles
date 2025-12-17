@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH="$PATH:$HOME/jason/bin:$HOME/.local/share/bob/nvim-bin:$HOME/tmux_scripts/"
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH="$PATH:$HOME/jason/bin:\
+$HOME/.local/share/bob/nvim-bin:\
+$HOME/tmux_scripts/:\
+/opt/idea-IC-252.28238.7/bin/:\
+$JAVA_HOME/bin"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
