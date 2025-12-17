@@ -2,3 +2,6 @@
 	editor = vim
 [init]
 	deafultBranch = main
+[user]
+	name = dimitriszitonoulis
+	email = 188760755+dimitriszitonoulis@users.noreply.github.com
