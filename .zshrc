@@ -117,6 +117,7 @@ alias n="nvim"
 alias sn="sudo nvim"
 
 alias sd="sudo docker"
+alias sdl="sudo docker logs"
 alias sdc="sudo docker compose"
 alias sdps="sudo docker ps"
 alias sdpsa="sudo docker ps -a"
