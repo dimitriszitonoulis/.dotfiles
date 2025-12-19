@@ -115,7 +115,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias n="nvim"
 alias sn="sudo nvim"
+
 alias sd="sudo docker"
+alias sdc="sudo docker compose"
+alias sdps="sudo docker ps"
+alias sdpsa="sudo docker ps -a"
+
 alias ta="tmux attach"
 alias tk="tmux kill-session"
 alias ff="fastfetch"
