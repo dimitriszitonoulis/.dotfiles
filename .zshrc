@@ -3,7 +3,8 @@
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH="$PATH:$HOME/jason/bin:\
 $HOME/.local/share/bob/nvim-bin:\
-$HOME/tmux_scripts/:\
+$HOME/scripts/:\
+$HOME/scripts/tmux_scripts/:\
 /opt/idea-IC-252.28238.7/bin/:\
 $JAVA_HOME/bin"
 
