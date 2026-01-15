@@ -5,7 +5,6 @@ export PATH="$PATH:$HOME/jason/bin:\
 $HOME/.local/share/bob/nvim-bin:\
 $HOME/scripts/:\
 $HOME/scripts/tmux_scripts/:\
-/opt/idea-IC-252.28238.7/bin/:\
 $JAVA_HOME/bin"
 
 # Path to your Oh My Zsh installation.
