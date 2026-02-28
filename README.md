@@ -19,7 +19,23 @@ Enter the `.dotfiles` directory and use stow to create symlinks
 
 ```bash
 cd .dotfiles
-stow .
+stow common
+```
+
+### If on wayland with hyprland
+
+Execute the following inside `.dotfiles`:
+
+```bash
+stow wayland
+```
+
+### If on X11
+
+Execute the following inside `.dotfiles`:
+
+```bash
+stow X11
 ```
 
 This will create symbolic links for the files inside `.dotfiles`
