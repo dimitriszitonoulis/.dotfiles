@@ -1,3 +1,6 @@
 # ignore lazyvim file, keeps changing after upgrades
 .config/nvim/lazy-lock.json
 
+# okular config keeps changing when I use different highlight colors
+okularpartrc
+
