@@ -1,14 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-
-export PATH="$PATH:\
-$HOME/jason/bin:\
-$HOME/.local/share/bob/nvim-bin:\
-$HOME/neovim/bin:\
-$HOME/scripts/:\
-$HOME/scripts/tmux_scripts/:\
-$JAVA_HOME/bin"
 
 export EDITOR=nvim
 export VISUAL=nvim
