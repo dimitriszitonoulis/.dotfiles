@@ -14,6 +14,26 @@ local browser = constants.BROWSER
 local music_player = constants.MUSIC_PLAYER
 local notes = constants.NOTES
 
+-- hl.bind(mainMod .. " + tab", function()
+--     local layouts     = { "scrolling", "dwindle", "master", "monocle" }
+--     local workspace   = hl.get_active_workspace()
+--     local next_layout = "dwindle"
+--
+--     if not workspace then
+--         return
+--     end
+--
+--     for i = 1, #layouts do
+--         if layouts[i] == workspace.tiled_layout then
+--             local next_layout_idx = (i % #layouts) + 1
+--             next_layout = layouts[next_layout_idx]
+--             break
+--         end
+--     end
+--
+--     hl.workspace_rule({ workspace = workspace.name, layout = next_layout })
+-- end)
+
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
@@ -35,6 +55,14 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("cyclenext"))
 hl.bind(mainMod .. " + K", hl.dsp.layout("cycleprev"))
 hl.bind(mainMod .. " + H", hl.dsp.layout("mfact -0.05"))
 hl.bind(mainMod .. " + L", hl.dsp.layout("mfact +0.05"))
+-- monocle layout
+hl.bind(mainMod .. " + M", hl.dsp.layout(""))
+
+-- bind = $mainMod ALT, L, exec, hyprlock
+-- bindl = $mainMod ALT, S, exec, systemctl suspend
+-- bindl = $mainMod ALT, R, exec, reboot
+-- bindl = $mainMod ALT, P, exec, poweroff
+
 -- # dwindle layout
 -- bind = $mainMod, G, pseudo, # dwindle
 -- bind = $mainMod, J, togglesplit, # dwindle
@@ -114,8 +142,8 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 
 -- screenshot keys
-hl.bind("Print", hl.dsp.exec_cmd("flameshot screen -c -p ~/Pictures/Screenshots"))
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("flameshot gui -c -p ~/Pictures/Screenshots"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("flameshot screen -c -p ~/Pictures/Screenshots"))
+hl.bind("Print", hl.dsp.exec_cmd("flameshot gui -c -p ~/Pictures/Screenshots"))
 
 
 -- power keys
