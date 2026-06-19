@@ -56,7 +56,7 @@ hl.bind(mainMod .. " + K", hl.dsp.layout("cycleprev"))
 hl.bind(mainMod .. " + H", hl.dsp.layout("mfact -0.05"))
 hl.bind(mainMod .. " + L", hl.dsp.layout("mfact +0.05"))
 -- monocle layout
-hl.bind(mainMod .. " + M", hl.dsp.layout(""))
+-- hl.bind(mainMod .. " + M", hl.dsp.layout(""))
 
 -- bind = $mainMod ALT, L, exec, hyprlock
 -- bindl = $mainMod ALT, S, exec, systemctl suspend
