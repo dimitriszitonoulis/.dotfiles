@@ -7,20 +7,6 @@ hl.gesture({
 })
 
 hl.gesture({
-    fingers = 2,
-    direction = "pinchin",
-    action = "cursorZoom",
-    zoom_level = 2
-})
-
-hl.gesture({
-    fingers = 2,
-    direction = "pinchout",
-    action = "cursorZoom",
-    zoom_level = -2
-})
-
-hl.gesture({
     fingers = 4,
     direction = "horizontal",
     action = "workspace"
