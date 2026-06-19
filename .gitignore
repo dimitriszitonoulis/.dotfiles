@@ -4,3 +4,5 @@
 # okular config keeps changing when I use different highlight colors
 *okularpartrc
 
+**/tmux/plugins
+
