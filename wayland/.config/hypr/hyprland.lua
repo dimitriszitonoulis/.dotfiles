@@ -37,6 +37,7 @@ hl.on("hyprland.start", function()
     --launch a terminal window with special class (to be moved to dedicated workspace)
     hl.exec_cmd(terminal, { workspace = "special:terminal silent" })
     hl.exec_cmd("hypridle")
+    hl.exec_cmd("hyprsunset")
 end)
 
 -- contains command for wallpaper,

@@ -151,4 +151,6 @@ hl.bind(powerMod .. " + L", hl.dsp.exec_cmd("hyprlock"), { locked = true })
 hl.bind(powerMod .. " + S", hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
 hl.bind(powerMod .. " + R", hl.dsp.exec_cmd("reboot"), { locked = true })
 hl.bind(powerMod .. " + P", hl.dsp.exec_cmd("poweroff"), { locked = true })
+-- screen
 hl.bind(powerMod .. " + T", hl.dsp.exec_cmd("turn_off_screen.sh intel_backlight"))
+hl.bind(powerMod .. " + N", hl.dsp.exec_cmd("shader_hypr.sh 3000"))
