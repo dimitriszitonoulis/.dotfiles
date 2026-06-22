@@ -142,8 +142,10 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 
 -- screenshot keys
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("flameshot screen -c -p ~/Pictures/Screenshots"))
-hl.bind("Print", hl.dsp.exec_cmd("flameshot gui -c -p ~/Pictures/Screenshots"))
+-- hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("flameshot screen -c -p ~/Pictures/Screenshots"))
+-- hl.bind("Print", hl.dsp.exec_cmd("flameshot gui -c -p ~/Pictures/Screenshots"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim"))
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)"'))
 
 
 -- power keys

@@ -7,6 +7,8 @@ export VISUAL=nvim
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export GRIM_DEFAULT_DIR="$HOME/Pictures/Screenshots/"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -75,9 +77,9 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -91,9 +93,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='nvim'
+    export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -139,4 +141,4 @@ alias bmon="xrandr --output HDMI-1 --auto --left-of eDP-1"
 # kitty terminal fix
 # alias ssh="TERM=xterm-256color ssh" # from what I understand this recursively called ssh
 # ssh() { kitty +kitten ssh "$@" }
-ssh() { TERM=xterm-256color command ssh "$@" }
+ssh() { TERM=xterm-256color command ssh "$@"; }
