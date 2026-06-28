@@ -7,8 +7,6 @@ export VISUAL=nvim
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export GRIM_DEFAULT_DIR="$HOME/Pictures/Screenshots/"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -85,6 +83,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
