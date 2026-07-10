@@ -44,9 +44,6 @@ hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(menu))
 
 
--- dwindle layout
-hl.bind(mainMod .. " + G", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + G", hl.dsp.layout("togglesplit"))
 -- master layout
 hl.bind(appMod .. " + RETURN", hl.dsp.layout("swapwithmaster"))
 hl.bind(mainMod .. " + O", hl.dsp.layout("addmaster"))
