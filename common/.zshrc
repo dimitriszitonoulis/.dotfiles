@@ -1,6 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+export PATH="$PATH:\
+$HOME/jason/bin:\
+$HOME/.local/share/bob/nvim-bin:\
+$HOME/neovim/bin:\
+$HOME/scripts/:\
+$HOME/scripts/tmux_scripts/:\
+$HOME/scripts/desktop_controls/:\
+$JAVA_HOME/bin"
+
 export EDITOR=nvim
 export VISUAL=nvim
 
