@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+
 export PATH="$PATH:\
 $HOME/.local/share/bob/nvim-bin:\
 $HOME/neovim/bin:\

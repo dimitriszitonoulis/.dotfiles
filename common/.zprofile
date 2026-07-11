@@ -1,5 +1,3 @@
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-
 export PATH="$PATH:\
 $HOME/scripts/:\
 $HOME/scripts/tmux_scripts/:\
