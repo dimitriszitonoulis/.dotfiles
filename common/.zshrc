@@ -153,4 +153,4 @@ ssh() { TERM=xterm-256color command ssh "$@"; }
 
 # scripts functions
 sf() { du -a ~/scripts | awk '{print $2}' | grep -vi .git | fzf; }
-se() { du -a ~/scripts | awk '{print $2}' | grep -vi .git | fzf | xargs -r "$EDITOR"; }
+se() { sf | xargs -r "$EDITOR"; }
