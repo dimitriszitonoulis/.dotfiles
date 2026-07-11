@@ -148,3 +148,7 @@ alias bmon="xrandr --output HDMI-1 --auto --left-of eDP-1"
 # alias ssh="TERM=xterm-256color ssh" # from what I understand this recursively called ssh
 # ssh() { kitty +kitten ssh "$@" }
 ssh() { TERM=xterm-256color command ssh "$@"; }
+
+# scripts functions
+sf() { du -a ~/scripts | awk '{print $2}' | grep -vi .git | fzf; }
+se() { du -a ~/scripts | awk '{print $2}' | grep -vi .git | fzf | xargs -r "$EDITOR"; }
