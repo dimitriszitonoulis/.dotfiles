@@ -121,7 +121,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias n="nvim"
-alias sn="sudo /home/dim/.local/share/bob/nvim-bin/nvim /etc/fstab"
+alias sn="sudo /home/dim/.local/share/bob/nvim-bin/nvim"
 
 alias sd="sudo docker"
 alias sdl="sudo docker logs"
