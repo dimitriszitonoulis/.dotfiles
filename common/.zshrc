@@ -151,6 +151,7 @@ alias bmon="xrandr --output HDMI-1 --auto --left-of eDP-1"
 # ssh() { kitty +kitten ssh "$@" }
 ssh() { TERM=xterm-256color command ssh "$@"; }
 
-# scripts functions
-sf() { du -a ~/scripts | awk '{print $2}' | grep -vi .git | fzf; }
+# fuzzy find functions
+sf() { du -a ~/scripts ~/.dotfiles | awk '{print $2}' | grep -vi .git | fzf; }
 se() { sf | xargs -r "$EDITOR"; }
+sr() { sf | zsh -s; }
