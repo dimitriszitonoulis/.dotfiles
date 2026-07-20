@@ -152,6 +152,19 @@ alias bmon="xrandr --output HDMI-1 --auto --left-of eDP-1"
 ssh() { TERM=xterm-256color command ssh "$@"; }
 
 # fuzzy find functions
-sf() { find ~/scripts ~/.dotfiles | grep -vi .git | fzf; }
-se() { find ~/scripts ~/.dotfiles | grep -vi .git | fzf | xargs -r "$EDITOR"; }
-sr() { find ~/scripts | grep -vi .git | fzf | zsh -s; }
+sf() { find ~/scripts ~/.dotfiles -type f | grep -vi ".git" | fzf; }
+se() {
+    local file
+    file=$(find ~/scripts ~/.dotfiles -type f | grep -vi ".git" | fzf) || return
+    "$EDITOR" "$file"
+}
+sr() {
+    local file
+    file=$(find ~/scripts -type f | grep -vi ".git" | fzf) || return
+    "$file"
+}
+scd() {
+    local dir
+    dir=$(find ~/scripts ~/.dotfiles -type d | grep -vi ".git" | fzf) || return
+    cd "$dir"
+}
