@@ -14,25 +14,9 @@ local browser = constants.BROWSER
 local music_player = constants.MUSIC_PLAYER
 local notes = constants.NOTES
 
--- hl.bind(mainMod .. " + tab", function()
---     local layouts     = { "scrolling", "dwindle", "master", "monocle" }
---     local workspace   = hl.get_active_workspace()
---     local next_layout = "dwindle"
---
---     if not workspace then
---         return
---     end
---
---     for i = 1, #layouts do
---         if layouts[i] == workspace.tiled_layout then
---             local next_layout_idx = (i % #layouts) + 1
---             next_layout = layouts[next_layout_idx]
---             break
---         end
---     end
---
---     hl.workspace_rule({ workspace = workspace.name, layout = next_layout })
--- end)
+
+
+
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
@@ -151,5 +135,21 @@ hl.bind(powerMod .. " + S", hl.dsp.exec_cmd("systemctl suspend"), { locked = tru
 hl.bind(powerMod .. " + R", hl.dsp.exec_cmd("reboot"), { locked = true })
 hl.bind(powerMod .. " + P", hl.dsp.exec_cmd("poweroff"), { locked = true })
 -- screen
-hl.bind(powerMod .. " + T", hl.dsp.exec_cmd("turn_off_screen.sh intel_backlight"))
+hl.bind(powerMod .. " + C", hl.dsp.exec_cmd("turn_off_screen.sh intel_backlight"))
 hl.bind(powerMod .. " + N", hl.dsp.exec_cmd("shader_hypr.sh 3000"))
+
+hl.bind(powerMod .. " + M", function()
+    hl.config({
+        general = {
+            layout = "monocle"
+        }
+    })
+end)
+
+hl.bind(powerMod .. " + T", function()
+    hl.config({
+        general = {
+            layout = "master"
+        }
+    })
+end)
