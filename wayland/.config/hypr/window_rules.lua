@@ -77,7 +77,7 @@ hl.window_rule({
 
 hl.window_rule({
     name      = "notes-workspace",
-    match     = { class = "^(md.Obsidian)$" },
+    match     = { class = "^(md.obsidian.Obsidian)$" },
     workspace = "special:notes"
 })
 
